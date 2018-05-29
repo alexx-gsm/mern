@@ -35,11 +35,11 @@ class Navbar extends Component {
     );
     const guestLink = (
       <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <Link className="nav-link" to="/register">
             Sign Up
           </Link>
-        </li>
+        </li> */}
         <li className="nav-item">
           <Link className="nav-link" to="/login">
             Login
@@ -49,10 +49,10 @@ class Navbar extends Component {
     );
 
     return (
-      <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
+      <nav className="navbar navbar-expand-sm fixed-top navbar-dark bg-dark mb-4">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            DevConnector
+            "ВкусноДА!"
           </Link>
           <button
             className="navbar-toggler"
@@ -64,14 +64,14 @@ class Navbar extends Component {
           </button>
 
           <div className="collapse navbar-collapse" id="mobile-nav">
-            <ul className="navbar-nav mr-auto">
+            {/* <ul className="navbar-nav mr-auto">
               <li className="nav-item">
                 <Link className="nav-link" to="/profiles">
                   {' '}
                   Developers
                 </Link>
               </li>
-            </ul>
+            </ul> */}
 
             {isAuthenticated ? authLink : guestLink}
           </div>

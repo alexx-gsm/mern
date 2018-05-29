@@ -4,12 +4,12 @@ img {
 
 .landing {
   position: relative;
-  background: url('./img/showcase.jpg') no-repeat;
+  background: url('./img/bg.jpg') no-repeat;
   background-size: cover;
   background-position: center;
   height: 100vh;
-  margin-top: -24px;
-  margin-bottom: -50px;
+  /* margin-top: -24px;
+  margin-bottom: -50px; */
 }
 
 .landing-inner {
@@ -36,4 +36,17 @@ img {
 
 .form-control::placeholder {
   color: #bbb !important;
+}
+
+.App {
+  height: 100vh;
+  padding-top: 80px;
+  padding-bottom: 75px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
 }

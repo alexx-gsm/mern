@@ -10,24 +10,29 @@ const TextFieldGroup = ({
   error,
   info,
   type,
+  step,
   handleInput,
   disabled
 }) => {
   return (
-    <div className="form-group">
-      <input
-        type={type}
-        className={classnames('form-control form-control-lg', {
-          'is-invalid': error
-        })}
-        placeholder={placeholder}
-        name={name}
-        value={value}
-        onChange={handleInput}
-        disabled={disabled}
-      />
-      {info && <small className="form-text text-muted">{info}</small>}
-      {error && <div className="invalid-feedback">{error}</div>}
+    <div className="form-group row">
+      <label className="col-sm-2 col-form-label">{label}</label>
+      <div class="col-sm-10">
+        <input
+          type={type}
+          step={step}
+          className={classnames('form-control', {
+            'is-invalid': error
+          })}
+          placeholder={placeholder}
+          name={name}
+          value={value}
+          onChange={handleInput}
+          disabled={disabled}
+        />
+        {info && <small className="form-text text-muted">{info}</small>}
+        {error && <div className="invalid-feedback">{error}</div>}
+      </div>
     </div>
   );
 };

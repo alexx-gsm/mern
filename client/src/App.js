@@ -26,6 +26,11 @@ import AddEducation from './components/add-credentials/AddEducation';
 
 import './App.css';
 
+import Type from './components/type';
+import Delivery from './components/delivery';
+import DishList from './components/dish';
+import CreateDish from './components/dish/create-dish';
+
 // Check for token
 if (localStorage.jwtToken) {
   // Set auth token header
@@ -56,11 +61,32 @@ class App extends Component {
             <Navbar />
             <Route exact path="/" component={Landing} />
             <div className="container">
-              <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
+
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
               </Switch>
+
+              <Switch>
+                <PrivateRoute exact path="/type" component={Type} />
+              </Switch>
+
+              <Switch>
+                <PrivateRoute exact path="/dishes" component={DishList} />
+              </Switch>
+
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/create-dish"
+                  component={CreateDish}
+                />
+              </Switch>
+
+              <Switch>
+                <PrivateRoute exact path="/delivery" component={Delivery} />
+              </Switch>
+
               <Switch>
                 <PrivateRoute
                   exact

@@ -8,6 +8,7 @@ const SelectListGroup = ({
   error,
   info,
   handleInput,
+  label,
   options
 }) => {
   const selectOptions = options.map(option => (
@@ -16,19 +17,22 @@ const SelectListGroup = ({
     </option>
   ));
   return (
-    <div className="form-group">
-      <select
-        className={classnames('form-control form-control-lg', {
-          'is-invalid': error
-        })}
-        name={name}
-        value={value}
-        onChange={handleInput}
-      >
-        {selectOptions}
-      </select>
-      {info && <small className="form-text text-muted">{info}</small>}
-      {error && <div className="invalid-feedback">{error}</div>}
+    <div className="form-group row  ">
+      <label className="col-sm-2 col-form-label">{label}</label>
+      <div class="col-sm-10">
+        <select
+          className={classnames('form-control ', {
+            'is-invalid': error
+          })}
+          name={name}
+          value={value}
+          onChange={handleInput}
+        >
+          {selectOptions}
+        </select>
+        {info && <small className="form-text text-muted">{info}</small>}
+        {error && <div className="invalid-feedback">{error}</div>}
+      </div>
     </div>
   );
 };
