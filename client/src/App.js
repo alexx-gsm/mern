@@ -62,19 +62,15 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <div className="container">
               <Route exact path="/login" component={Login} />
-
-              <Switch>
+              {/* <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              </Switch>
-
+              </Switch> */}
               <Switch>
                 <PrivateRoute exact path="/type" component={Type} />
               </Switch>
-
               <Switch>
                 <PrivateRoute exact path="/dishes" component={DishList} />
               </Switch>
-
               <Switch>
                 <PrivateRoute
                   exact
@@ -82,7 +78,6 @@ class App extends Component {
                   component={CreateDish}
                 />
               </Switch>
-
               <Switch>
                 <PrivateRoute exact path="/delivery" component={Delivery} />
               </Switch>
