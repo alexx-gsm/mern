@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const CustomerSchema = new Schema({
   name: {
     type: String,
-    required: true
+    default: 'ч/л'
   },
   person: {
     type: String,
@@ -16,15 +16,15 @@ const CustomerSchema = new Schema({
     required: true
   },
   email: {
-    type: String,
-    required: true
+    type: String
   },
   address: {
     type: String,
     required: true
   },
   note: {
-    type: String
+    type: String,
+    default: ''
   },
   date: {
     type: Date,

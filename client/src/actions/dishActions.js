@@ -12,7 +12,12 @@ export const getDishes = () => dispatch => {
   dispatch(setDishLoading());
   axios
     .get('/api/dishes')
-    .then(res => dispatch(getDishesAll(res.data)))
+    .then(res =>
+      dispatch({
+        type: DISHES_GET_ALL,
+        payload: res.data
+      })
+    )
     .catch(err => dispatch(getErrors(err.response.data)));
 };
 
@@ -32,12 +37,6 @@ export const createDish = (dishData, history) => dispatch => {
 // };
 
 // --------------------------------------- ACTIONS
-
-// action: Get dishes all
-export const getDishesAll = payload => ({
-  type: DISHES_GET_ALL,
-  payload
-});
 
 // action: Dish loading
 export const setDishLoading = () => ({

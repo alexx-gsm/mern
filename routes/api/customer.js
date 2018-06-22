@@ -21,23 +21,57 @@ router.post(
   '/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    console.log(req.body);
     const { errors, isValid } = validateCustomerInput(req.body);
+
     // Check Validation
     if (!isValid) {
       return res.status(400).json(errors);
     }
 
-    const newCustomer = new Customer({
-      name: req.body.name,
-      person: req.body.person,
-      phone: req.body.phone,
-      email: req.body.email,
-      address: req.body.address,
-      note: req.body.note
-    });
+    const customerID = req.body._id || null;
 
-    newCustomer.save().then(customer => res.json(customer));
+    if (customerID) {
+      const customerFields = {};
+
+      customerFields.name = req.body.name;
+      customerFields.person = req.body.person;
+      customerFields.phone = req.body.phone;
+      customerFields.email = req.body.email;
+      customerFields.address = req.body.address;
+      customerFields.note = req.body.note;
+
+      Customer.findById(customerID).then(customer => {
+        if (customer) {
+          // Update Customer
+          Customer.findByIdAndUpdate(
+            customerID,
+            { $set: customerFields },
+            { new: true }
+          )
+            .then(customer => {
+              res.json(customer);
+            })
+            .catch(err =>
+              res
+                .status(401)
+                .json({ nocustomer: 'Нет такого customer', err: err })
+            );
+        }
+      });
+    } else {
+      // Create new Customer
+      const newCustomer = new Customer({
+        name: req.body.name,
+        person: req.body.person,
+        phone: req.body.phone,
+        email: req.body.email,
+        address: req.body.address,
+        note: req.body.note
+      });
+
+      // Save new Customer
+      newCustomer.save().then(customer => res.json(customer));
+    }
   }
 );
 

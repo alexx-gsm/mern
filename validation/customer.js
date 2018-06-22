@@ -30,11 +30,11 @@ module.exports = function validatePostInput(data) {
 
   // email
   data.email = !isEmpty(data.email) ? data.email : '';
-  if (Validator.isEmpty(data.email)) {
-    errors.email = 'Email field is required';
-  }
-  if (!Validator.isEmail(data.email)) {
-    errors.email = 'Email is invalid';
+  // if (Validator.isEmpty(data.email)) {
+  //   errors.email = 'Email field is required';
+  // }
+  if (!Validator.isEmpty(data.email) && !Validator.isEmail(data.email)) {
+    errors.email = 'Укажите корректный e-mail или оставьте поле пустым';
   }
 
   // address

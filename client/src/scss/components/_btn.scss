@@ -1,0 +1,34 @@
+.btn {
+  $_: '.btn';
+  &--icon {
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &--add {
+    color: #28a745;
+    padding: 0;
+    i {
+      font-size: 2.5rem;
+    }
+    &:hover {
+      color: darken(#28a745, 5%);
+    }
+  }
+  &--remove {
+    color: #dc3545;
+    padding: 0;
+    i {
+      font-size: 2.5rem;
+    }
+    &:hover {
+      color: darken(#dc3545, 5%);
+    }
+  }
+  i {
+    pointer-events: none;
+  }
+}

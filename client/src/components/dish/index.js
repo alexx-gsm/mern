@@ -11,7 +11,7 @@ class DishList extends Component {
   getDishList = items => items.map(item => <li key={item._id}>{item.name}</li>);
 
   render() {
-    const { dishes, loading } = this.props.dish;
+    const { dishes, loading } = this.props.dishes;
 
     const dishContent =
       dishes === null || loading ? (
@@ -42,8 +42,8 @@ DishList.propTypes = {
 };
 
 export default connect(
-  ({ dish, auth }) => ({
-    dish,
+  ({ dishes, auth }) => ({
+    dishes,
     auth
   }),
   { getDishes }

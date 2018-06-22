@@ -4,4 +4,77 @@ body {
   margin: 0;
   padding: 0;
 }
+
+label:empty {
+  display: none;
+}
+
+.btn--icon {
+  padding: 0;
+  width: 2rem;
+  height: 2rem;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.btn--add {
+  color: #28a745;
+  padding: 0;
+}
+
+.btn--add i {
+  font-size: 2.5rem;
+}
+
+.btn--add:hover {
+  color: #23923d;
+}
+
+.btn--remove {
+  color: #dc3545;
+  padding: 0;
+}
+
+.btn--remove i {
+  font-size: 2.5rem;
+}
+
+.btn--remove:hover {
+  color: #d32535;
+}
+
+.btn i {
+  pointer-events: none;
+}
+
+.table .cell--btn-remove, .table .cell--btn-add {
+  min-width: 60px;
+  width: 60px;
+  padding-left: 0;
+}
+
+.table .cell--amount span {
+  width: 30px;
+  display: inline-block;
+  text-align: center;
+  border-bottom: 1px solid gray;
+}
+
+.table .cell--number {
+  line-height: 40px;
+  text-align: right;
+  width: 38px;
+  white-space: nowrap;
+}
+
+.table .form-group {
+  margin-bottom: 0;
+}
 /*# sourceMappingURL=index.css.map */

@@ -2,56 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getCurrentProfile, deleteProfile } from '../../actions/profileActions';
 import Spinner from '../common/spinner';
-import ProfileActions from './ProfileActions';
 
 class Dashboard extends Component {
-  componentDidMount = () => {
-    this.props.getCurrentProfile();
-  };
-
-  handleDelete = e => {
-    e.preventDefault();
-    this.props.deleteProfile();
-  };
-
-  checkProfile = profile => {
-    const { user } = this.props.auth;
-    if (Object.keys(profile).length > 0) {
-      return (
-        <div>
-          <p className="lead text-mute">
-            Welcome <Link to={`/profile/${profile.handle}`}> {user.name}</Link>
-          </p>
-          <ProfileActions />
-          {/* TODO: exp and edu */}
-
-          <div style={{ marginBottom: '60px' }}>
-            <button className="btn btn-danger" onClick={this.handleDelete}>
-              Delete My Account
-            </button>
-          </div>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <p className="lead text-mute">Welcome {user.name}</p>
-          <p>You have not yet setup a profile, please add some info</p>
-          <Link to="/create-profile" className="btn btn-lg btn-info">
-            Create profile
-          </Link>
-        </div>
-      );
-    }
-  };
+  componentDidMount = () => {};
 
   render() {
-    const { profile, loading } = this.props.profile;
-
-    const dashboardContent =
-      profile === null || loading ? <Spinner /> : this.checkProfile(profile);
+    const { user } = this.props.auth;
 
     return (
       <div className="dashboard">
@@ -59,7 +16,18 @@ class Dashboard extends Component {
           <div className="row">
             <div className="col-md-12">
               <h1>Dashboard</h1>
-              {dashboardContent}
+              <div>
+                <p className="lead text-mute">Welcome {user.name}</p>
+                <Link to="/orders" className="btn btn-lg btn-info">
+                  Заказы
+                </Link>
+                <Link to="/dishes" className="btn btn-lg btn-info">
+                  Блюда
+                </Link>
+                <Link to="/customers" className="btn btn-lg btn-info">
+                  Клиенты
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -69,10 +37,7 @@ class Dashboard extends Component {
 }
 
 Dashboard.propTypes = {
-  profile: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired,
-  getCurrentProfile: PropTypes.func.isRequired,
-  deleteProfile: PropTypes.func.isRequired
+  auth: PropTypes.object.isRequired
 };
 
 export default connect(
@@ -80,5 +45,5 @@ export default connect(
     profile,
     auth
   }),
-  { getCurrentProfile, deleteProfile }
+  {}
 )(Dashboard);

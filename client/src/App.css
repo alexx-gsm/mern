@@ -39,14 +39,11 @@ img {
 }
 
 .App {
-  height: 100vh;
-  padding-top: 80px;
-  padding-bottom: 75px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
+  margin-top: 40px;
 }

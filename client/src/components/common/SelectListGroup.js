@@ -16,30 +16,29 @@ const SelectListGroup = ({
       {option.label}
     </option>
   ));
+
   return (
-    <div className="form-group row  ">
-      <label className="col-sm-2 col-form-label">{label}</label>
-      <div class="col-sm-10">
-        <select
-          className={classnames('form-control ', {
-            'is-invalid': error
-          })}
-          name={name}
-          value={value}
-          onChange={handleInput}
-        >
-          {selectOptions}
-        </select>
-        {info && <small className="form-text text-muted">{info}</small>}
-        {error && <div className="invalid-feedback">{error}</div>}
-      </div>
+    <div className="form-group">
+      <label className="col-form-label">{label}</label>
+      <select
+        className={classnames('form-control ', {
+          'is-invalid': error
+        })}
+        name={name}
+        value={value}
+        onChange={handleInput}
+      >
+        {selectOptions}
+      </select>
+      {info && <small className="form-text text-muted">{info}</small>}
+      {error && <div className="invalid-feedback">{error}</div>}
     </div>
   );
 };
 
 SelectListGroup.propTypes = {
   name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   info: PropTypes.string,
   error: PropTypes.string,
   handleInput: PropTypes.func.isRequired,

@@ -9,9 +9,13 @@ const OrderSchema = new Schema({
   },
   dishes: [
     {
-      dish: {
+      dish_id: {
         type: Schema.Types.ObjectId,
         ref: 'dishes'
+      },
+      is_ready: {
+        type: Boolean,
+        default: false
       },
       amount: {
         type: String,
@@ -33,6 +37,17 @@ const OrderSchema = new Schema({
   payment: {
     type: String,
     default: 'not paid'
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  },
+  update: {
+    type: Date,
+    default: Date.now
+  },
+  comment: {
+    type: String
   }
 });
 

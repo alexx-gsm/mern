@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import PrivateRoute from './components/common/PrivateRoute';
+import AdminRoute from './components/common/AdminRoute';
 
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -30,6 +31,13 @@ import Type from './components/type';
 import Delivery from './components/delivery';
 import DishList from './components/dish';
 import CreateDish from './components/dish/create-dish';
+import CustomerList from './components/customer/CustomerList';
+import CreateCustomer from './components/customer/CreateCustomer';
+import EditCustomer from './components/customer/EditCustomer';
+
+import OrderList from './components/order/OrderList';
+import CreateOrder from './components/order/CreateOrder';
+import EditOrder from './components/order/EditOrder';
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -46,7 +54,7 @@ if (localStorage.jwtToken) {
     // Logout user
     store.dispatch(logoutUser());
     // Clear current profile
-    store.dispatch(clearCurrentProfile());
+    // store.dispatch(clearCurrentProfile());
     // Redirect to login
     window.location.href = '/login';
   }
@@ -60,14 +68,47 @@ class App extends Component {
           <div className="App">
             <Navbar />
             <Route exact path="/" component={Landing} />
-            <div className="container">
+            <div className="container mb-5">
               <Route exact path="/login" component={Login} />
-              {/* <Switch>
-                <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              </Switch> */}
+              <Switch>
+                <AdminRoute exact path="/dashboard" component={Dashboard} />
+              </Switch>
               <Switch>
                 <PrivateRoute exact path="/type" component={Type} />
               </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/customers"
+                  component={CustomerList}
+                />
+                <PrivateRoute
+                  exact
+                  path="/create-customer"
+                  component={CreateCustomer}
+                />
+              </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/edit-customer/:id"
+                  component={EditCustomer}
+                />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/orders" component={OrderList} />
+                <PrivateRoute
+                  exact
+                  path="/create-order"
+                  component={CreateOrder}
+                />
+                <PrivateRoute
+                  exact
+                  path="/edit-order/:id"
+                  component={EditOrder}
+                />
+              </Switch>
+
               <Switch>
                 <PrivateRoute exact path="/dishes" component={DishList} />
               </Switch>

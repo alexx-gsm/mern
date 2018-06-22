@@ -14,11 +14,18 @@ class Navbar extends Component {
 
   render() {
     const { isAuthenticated, user } = this.props.auth;
-    const authLink = (
-      <ul className="navbar-nav ml-auto">
+    const dashboard =
+      user.role === 'admin' ? (
         <Link className="nav-link" to="/dashboard">
           Dashboard
         </Link>
+      ) : null;
+    const authLink = (
+      <ul className="navbar-nav ml-auto">
+        {dashboard}
+        <li className="nav-item">
+          <span className="nav-link disabled">{user.name}</span>
+        </li>
         <li className="nav-item">
           <a href="" onClick={this.handleLogout} className="nav-link">
             <img
@@ -49,7 +56,7 @@ class Navbar extends Component {
     );
 
     return (
-      <nav className="navbar navbar-expand-sm fixed-top navbar-dark bg-dark mb-4">
+      <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
         <div className="container">
           <Link className="navbar-brand" to="/">
             "ВкусноДА!"
