@@ -1,0 +1,115 @@
+.picker-info {
+  background: darkcyan;
+  padding: 0 10px 10px;
+}
+.picker-info h2 {
+  color: white;
+  opacity: 1;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(245, 245, 245, 0.22);
+  transition: opacity ease-in 0.3s;
+}
+.picker-info h2:hover {
+  opacity: 0.8;
+  transition: opacity ease-in 0.3s;
+}
+.picker-separator {
+  font-size: 26px;
+  padding: 0 10px;
+}
+.picker-period {
+  color: white;
+  display: flex;
+}
+.picker-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.day-selector {
+  list-style: none;
+  display: inline-flex;
+  padding: 0;
+  margin: 0;
+}
+.day-selector li:not(:last-child) .btn {
+  border-right: 1px solid rgba(245, 245, 245, 0.22);
+}
+.day-selector .btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: white;
+  padding: 0 10px;
+}
+
+.day-selector .btn .badge {
+  position: absolute;
+  right: 3px;
+  top: 0px;
+}
+.day-selector .btn:hover,
+.day-selector .btn.is-active {
+  border: 1px solid rgba(245, 245, 245, 0.22);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.22);
+}
+.day-selector .btn .day-selector__data {
+  font-size: 12px;
+}
+
+.DayPicker {
+  background: #efefef;
+}
+.SelectedWeekExample .DayPicker-Month {
+  border-collapse: separate;
+}
+.SelectedWeekExample .DayPicker-WeekNumber {
+  outline: none;
+}
+.SelectedWeekExample .DayPicker-Day {
+  outline: none;
+  border: 1px solid transparent;
+}
+.SelectedWeekExample .DayPicker-Day--hoverRange {
+  background-color: #ffeb3b !important;
+}
+
+.SelectedWeekExample .DayPicker-Day--selectedRange {
+  background-color: #fff7ba !important;
+  border-top-color: #ffeb3b;
+  border-bottom-color: #ffeb3b;
+  border-left-color: #fff7ba;
+  border-right-color: #fff7ba;
+}
+
+.SelectedWeekExample .DayPicker-Day--selectedRangeStart {
+  background-color: #ffeb3b !important;
+  border-left: 1px solid #ffeb3b;
+}
+
+.SelectedWeekExample .DayPicker-Day--selectedRangeEnd {
+  background-color: #ffeb3b !important;
+  border-right: 1px solid #ffeb3b;
+}
+
+.SelectedWeekExample
+  .DayPicker-Day--selectedRange:not(.DayPicker-Day--outside).DayPicker-Day--selected,
+.SelectedWeekExample
+  .DayPicker-Day--hoverRange:not(.DayPicker-Day--outside).DayPicker-Day--selected {
+  border-radius: 0 !important;
+  color: black !important;
+}
+.SelectedWeekExample .DayPicker-Day--hoverRange:hover {
+  border-radius: 0 !important;
+}

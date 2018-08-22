@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
-import InputGroup from '../common/InputGroup';
-import SelectListGroup from '../common/SelectListGroup';
 import { createCustomer } from '../../actions/customerActions';
 
 class CreateCustomer extends Component {

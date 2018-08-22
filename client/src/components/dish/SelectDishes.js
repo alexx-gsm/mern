@@ -8,7 +8,7 @@ import {
   editDishInOrder
 } from '../../actions/orderActions';
 import SelectListGroup from '../common/SelectListGroup';
-import Spinner from '../common/spinner';
+// import Spinner from '../common/spinner';
 import isEmpty from '../../validation/is-empty';
 
 class SelectDishes extends Component {
@@ -150,7 +150,7 @@ class SelectDishes extends Component {
     );
 
   getBody = () => {
-    const { dishes = [], total } = this.props.orders.order;
+    const { dishes = [] } = this.props.orders.order;
 
     const { role } = this.props.auth.user;
 

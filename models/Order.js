@@ -38,6 +38,10 @@ const OrderSchema = new Schema({
     type: String,
     default: 'not paid'
   },
+  deliveryDate: {
+    type: Date,
+    default: Date.now
+  },
   date: {
     type: Date,
     default: Date.now

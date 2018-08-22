@@ -15,9 +15,9 @@ const TextFieldGroup = ({
   disabled
 }) => {
   return (
-    <div className="form-group row">
-      <label className="col-sm-3 col-form-label">{label}</label>
-      <div className="col-sm-9">
+    <div className="form-group">
+      <label className="col-form-label">{label}</label>
+      <div className="">
         <input
           type={type}
           step={step}

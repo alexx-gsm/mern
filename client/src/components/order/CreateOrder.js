@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import SelectDishes from '../dish/SelectDishes';
-import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
-import InputGroup from '../common/InputGroup';
 import SelectListGroup from '../common/SelectListGroup';
 import {
   createOrder,
@@ -18,6 +15,11 @@ import {
 import { getCustomers } from '../../actions/customerActions';
 import Spinner from '../common/spinner';
 import isEmpty from '../../validation/is-empty';
+// import io from 'socket.io-client';
+
+// import { HOST } from '../../const';
+
+// const socket = io(HOST);
 
 class CreateOrder extends Component {
   state = {
@@ -61,6 +63,9 @@ class CreateOrder extends Component {
       comment,
       total: this.props.orders.orderTotal
     };
+
+    // socket.emit('order update');
+    // socket.emit('order update', {});
 
     !this.state.id
       ? this.props.createOrder(orderData, this.props.history)
@@ -158,6 +163,14 @@ class CreateOrder extends Component {
             </h1>
             <small className="d-block pb-3">* = required fields</small>
             {!this.state.isLoaded ? <Spinner /> : this.getBody()}
+            <button
+              onClick={() => {
+                // socket.emit('order update', {});
+                console.log('--click button');
+              }}
+            >
+              EMIT EVENT
+            </button>
           </div>
         </div>
       </div>

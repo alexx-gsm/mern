@@ -2,14 +2,22 @@ img {
   width: 100%;
 }
 
+.navbar {
+  z-index: 10;
+}
+
 .landing {
-  position: relative;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
   background: url('./img/bg.jpg') no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100vh;
   /* margin-top: -24px;
   margin-bottom: -50px; */
+  z-index: 1;
 }
 
 .landing-inner {
@@ -46,4 +54,5 @@ img {
 
 .footer {
   margin-top: 40px;
+  z-index: 10;
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Spinner from '../common/spinner';
+// import Spinner from '../common/spinner';
 
 class Dashboard extends Component {
   componentDidMount = () => {};
@@ -18,6 +18,9 @@ class Dashboard extends Component {
               <h1>Dashboard</h1>
               <div>
                 <p className="lead text-mute">Welcome {user.name}</p>
+                <Link to="/payments" className="btn btn-lg btn-primary">
+                  Денежка
+                </Link>
                 <Link to="/orders" className="btn btn-lg btn-info">
                   Заказы
                 </Link>

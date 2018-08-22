@@ -21,32 +21,25 @@ export const getOrders = () => dispatch => {
     type: ORDERS_SET_LOADING
   });
   axios
-    .post('/api/orders/all')
+    .post(`/api/orders/all`)
     .then(res => {
       dispatch({
         type: ORDERS_GET_ALL,
         payload: res.data
       });
     })
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
+    .catch(err => console.log('---err: ', err));
 };
 
 // Create Order
 export const createOrder = (orderData, history) => dispatch => {
+  console.log('---orderData', orderData);
   axios
     .post('/api/orders', orderData)
-    .then(res => history.push('/orders'))
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
+    .then(res => {
+      history.push('/orders');
+    })
+    .catch(err => console.log('---err: ', err));
 };
 
 // Edit Order
@@ -126,7 +119,7 @@ export const deleteOrder = id => dispatch => {
         type: ORDERS_SET_LOADING
       });
       axios
-        .post('/api/orders/all')
+        .post(`/api/orders/all`)
         .then(res =>
           dispatch({
             type: ORDERS_GET_ALL,

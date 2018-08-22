@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utiles/setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authAction';
-import { clearCurrentProfile } from './actions/profileActions';
 
 import { Provider } from 'react-redux';
 import store from './store';
@@ -15,7 +14,6 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Landing from './components/layout/Landing';
 
-import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 
 import Dashboard from './components/dashboard/Dashboard';
@@ -38,6 +36,9 @@ import EditCustomer from './components/customer/EditCustomer';
 import OrderList from './components/order/OrderList';
 import CreateOrder from './components/order/CreateOrder';
 import EditOrder from './components/order/EditOrder';
+// PAYMENTS
+import PaymentList from './components/PaymentList';
+import PaymentEdit from './components/PaymentEdit';
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -72,6 +73,12 @@ class App extends Component {
               <Route exact path="/login" component={Login} />
               <Switch>
                 <AdminRoute exact path="/dashboard" component={Dashboard} />
+                <AdminRoute exact path="/payments" component={PaymentList} />
+                <AdminRoute
+                  exact
+                  path="/payment-edit/:id?"
+                  component={PaymentEdit}
+                />
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/type" component={Type} />
@@ -152,7 +159,6 @@ class App extends Component {
                 />
               </Switch>
             </div>
-
             <Footer />
           </div>
         </Router>

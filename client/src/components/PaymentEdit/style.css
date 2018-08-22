@@ -1,0 +1,64 @@
+.card {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.card.card--form {
+  max-width: 550px;
+  margin: 0 auto;
+}
+.card.card--form .col-form-label {
+  padding: 0;
+  font-size: 12px;
+  color: #777;
+}
+.card.card--form.card--red .card__header,
+.card.card--form.card--red .card__footer .btn {
+  background-color: #dc3545;
+}
+.card__header {
+  background-color: darkcyan;
+  border-radius: 2px 2px 0 0;
+}
+.card__header-title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 40px;
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+}
+.card__btn-close {
+  position: absolute;
+  right: 0;
+  top: 2px;
+}
+.card__body {
+  padding: 20px;
+}
+.card__footer {
+  padding: 10px;
+  text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  background: whitesmoke;
+}
+.card__footer .btn {
+  /* width: 60%; */
+  text-transform: uppercase;
+  color: white;
+  background-color: darkcyan;
+  font-weight: bold;
+}
+.DayPickerInput {
+  /* margin-bottom: 20px; */
+}
+.DayPickerInput input {
+  border: none;
+  border-bottom: 1px solid lightgray;
+}
+
+.form-check--type {
+  margin: 0;
+  /* float: right; */
+}
+.form-check--type input {
+  margin-right: 20px;
+}

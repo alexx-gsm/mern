@@ -3,7 +3,6 @@ import {
   DISHES_GET_ALL,
   DISH_SET_LOADING,
   DISHES_SET_LOADING,
-  DISHES_GET_ALL_ERROR,
   GET_ERRORS
 } from './types';
 

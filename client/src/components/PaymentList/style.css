@@ -1,0 +1,29 @@
+.table thead tr th {
+  background: darkcyan;
+  border-top: none;
+  color: whitesmoke;
+  padding: 0.25rem 0.75rem;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.table tbody tr td {
+  vertical-align: middle;
+}
+.table tbody tr.red td {
+  background: rgba(255, 105, 119, 0.3);
+}
+
+.table tbody tr.red td.cell-total {
+  color: red;
+}
+
+.table tfoot tr td {
+  border-top: 2px solid #333;
+  color: #333;
+  font-size: 26px;
+  font-weight: bold;
+}
+.table tfoot tr td.no-border {
+  border: none;
+}

@@ -9,6 +9,7 @@ const posts = require('./routes/api/posts');
 const dishes = require('./routes/api/dishes');
 const customer = require('./routes/api/customer');
 const orders = require('./routes/api/orders');
+const payments = require('./routes/api/payments');
 
 const app = express();
 
@@ -38,7 +39,24 @@ app.use('/api/posts', posts);
 app.use('/api/dishes', dishes);
 app.use('/api/customer', customer);
 app.use('/api/orders', orders);
+app.use('/api/payments', payments);
 
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => console.log(`Server running on port ${port}`));
+const server = require('http').createServer(app);
+
+server.listen(port, () => console.log(`Server running on port ${port}`));
+
+// var io = require('socket.io')(server);
+
+// io.on('connection', socket => {
+//   console.log('---io client connected');
+
+//   socket.on('order update', () => {
+//     console.log('--- catch ORDER UPDATE');
+//     io.emit('orders upgrade');
+//   });
+
+//   socket.on('disconnect', () => console.log('---io client disconnected'));
+//   socket.on('test', () => console.log('--- test event'));
+// });

@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Route, withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import TextFieldGroup from '../common/TextFieldGroup';
-import isEmpty from '../../validation/is-empty';
 
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
-import InputGroup from '../common/InputGroup';
-import SelectListGroup from '../common/SelectListGroup';
 import { getCustomerByID, createCustomer } from '../../actions/customerActions';
 import Spinner from '../common/spinner';
 

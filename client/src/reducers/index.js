@@ -5,6 +5,7 @@ import profileReducer from './profileReducer';
 import dishReducer from './dishReducer';
 import customerReducer from './customerReducer';
 import orderReducer from './orderReducer';
+import paymentReducer from './paymentReducer';
 
 export default combineReducers({
   auth: authReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   profile: profileReducer,
   dishes: dishReducer,
   customers: customerReducer,
-  orders: orderReducer
+  orders: orderReducer,
+  payments: paymentReducer
 });

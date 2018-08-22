@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getDishes } from '../../actions/dishActions';
@@ -11,6 +10,9 @@ import {
 } from '../../actions/orderActions';
 import Spinner from '../common/spinner';
 import isEmpty from '../../validation/is-empty';
+// import io from 'socket.io-client';
+
+// const socket = io('http://vk-da.ru:5000');
 
 class OrderList extends Component {
   state = {
@@ -70,6 +72,8 @@ class OrderList extends Component {
           return status === 'inProcess' || status === 'ReadyToDelivery';
         case 'courier':
           return status === 'ReadyToDelivery' || status === 'onDelivery';
+        default:
+          return status;
       }
     });
   };
@@ -115,6 +119,13 @@ class OrderList extends Component {
     );
   };
 
+  // componentWillMount = () => {
+  //   socket.on('orders upgrade', () => {
+  //     console.log('=SOCKET');
+  //     this.props.getOrders();
+  //   });
+  // };
+
   componentDidMount = () => {
     if (isEmpty(this.props.dishes.dishes)) this.props.getDishes();
     if (isEmpty(this.props.customers.customers)) this.props.getCustomers();
@@ -154,7 +165,6 @@ class OrderList extends Component {
       default:
         return <i className="material-icons">info</i>;
     }
-    return;
   };
 
   getOrderList = orders =>
@@ -185,7 +195,7 @@ class OrderList extends Component {
     });
 
   render() {
-    const { orders, loading } = this.props.orders;
+    const { orders } = this.props.orders;
 
     const orderContent = !this.state.isLoaded ? (
       <Spinner />
