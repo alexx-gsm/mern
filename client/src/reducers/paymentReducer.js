@@ -1,8 +1,6 @@
 import {
   PAYMENT_GET_ALL,
   PAYMENT_GET_BY_ID,
-  PAYMENT_ADD,
-  PAYMENT_SAVE,
   PAYMENT_COUNT,
   PAYMENT_REQUIRE_REFRESH,
   PAYMENT_DELETE,
@@ -52,7 +50,6 @@ export default (state = initialState, action) => {
       };
 
     case PAYMENT_COUNT:
-      console.log('---count:', payload);
       return {
         ...state,
         countedPayments: [

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 // components
 import WeekPicker from '../WeekPicker/WeekPicker.jsx';
 // icons
@@ -16,8 +17,7 @@ const PaymentList = ({
   onChangeDays,
   onChangeWeek,
   onChangeDay,
-  weekTotal,
-  countedPayments
+  weekTotal
 }) => {
   return (
     <div className="page page--payments">
@@ -27,7 +27,7 @@ const PaymentList = ({
             <Link to={'/payment-edit'} className="btn btn-outline-info">
               Добавить
             </Link>
-            <h1 className="display-6 text-right">Денежка:</h1>
+            <h1 className="display-6 text-right">Денежка</h1>
           </div>
 
           <WeekPicker
@@ -60,15 +60,7 @@ const PaymentList = ({
                   key={item._id}
                   className={item.type === 'outcome' ? 'red' : 'green'}
                 >
-                  <td>
-                    {new Date(item.date).toLocaleDateString('ru', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                      hour: 'numeric',
-                      minute: 'numeric'
-                    })}
-                  </td>
+                  <td>{moment(item.date).format('D MMMM')}</td>
                   <td>{item.title}</td>
                   {/* <td>{item.type}</td> */}
                   <td className="text-right">{item.cash}</td>

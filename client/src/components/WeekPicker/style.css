@@ -1,6 +1,6 @@
 .picker-info {
   background: darkcyan;
-  padding: 0 10px 10px;
+  padding: 10px;
 }
 .picker-info h2 {
   color: white;
@@ -52,17 +52,21 @@
   background: transparent;
   color: white;
   padding: 0 10px;
+  transition: all ease-in-out 0.3s;
 }
 
 .day-selector .btn .badge {
   position: absolute;
-  right: 3px;
-  top: 0px;
+  right: 0;
+  top: -5px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.42);
 }
 .day-selector .btn:hover,
 .day-selector .btn.is-active {
   border: 1px solid rgba(245, 245, 245, 0.22);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.22);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  transition: all ease 0.3s;
 }
 .day-selector .btn .day-selector__data {
   font-size: 12px;

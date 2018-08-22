@@ -47,9 +47,8 @@ export default compose(
   withState('weekTotal', 'setWeekTotal', 0),
   lifecycle({
     componentDidMount() {
-      const { payments, selectedDays, selectedDay, week } = this.props.payments;
+      const { payments, selectedDays, selectedDay } = this.props.payments;
       if (isEmpty(payments)) {
-        // this.props.getAllPayments(week);
         this.props.getPaymentsByDay(selectedDays[selectedDay]);
       } else {
         this.props.setWeekTotal(getTotal(payments));

@@ -2,8 +2,6 @@ import axios from 'axios';
 import {
   PAYMENT_GET_BY_ID,
   PAYMENT_GET_ALL,
-  PAYMENT_SAVE,
-  PAYMENT_ADD,
   PAYMENT_COUNT,
   PAYMENT_REQUIRE_REFRESH,
   PAYMENT_CLEAR,
@@ -139,11 +137,9 @@ export const setSelectedDayOfWeekOfPayments = index => dispatch => {
 
 // Payment: count payments in day
 export const countPaymentsByDay = (day, index) => dispatch => {
-  console.log('---AC: count Payments By Day', day);
   axios
     .post(`/api/payments/count`, { day })
     .then(res => {
-      console.log('---i:', index, ' count: ', res.data);
       dispatch({
         type: PAYMENT_COUNT,
         payload: { index, count: res.data }

@@ -4,10 +4,7 @@ import React from 'react';
 import moment from 'moment';
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
-import MomentLocaleUtils, {
-  formatDate,
-  parseDate
-} from 'react-day-picker/moment';
+import MomentLocaleUtils from 'react-day-picker/moment';
 import 'moment/locale/ru';
 // icons
 
@@ -107,13 +104,10 @@ class WeekPicker extends React.Component {
 
     return (
       <div className="SelectedWeekExample">
-        <div className="picker-info d-flex align-items-baseline">
-          <h2 onClick={() => this.setState({ isVisible: true })}>
-            {weekNumber} неделя
-          </h2>
+        <div className="picker-info d-flex justify-content-between align-items-start">
           {selectedDays.length === 7 && (
             <div className="picker-period">
-              <span className="picker-separator">/</span>
+              {/* <span className="picker-separator">/</span> */}
               <ul className="day-selector">
                 {selectedDays.map((day, i) => (
                   <li key={i}>
@@ -140,6 +134,9 @@ class WeekPicker extends React.Component {
               </ul>
             </div>
           )}
+          <h2 onClick={() => this.setState({ isVisible: true })}>
+            {weekNumber} неделя
+          </h2>
           {this.state.isVisible && (
             <div className="picker-wrap">
               <DayPicker
