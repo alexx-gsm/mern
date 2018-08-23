@@ -4,6 +4,6 @@
 // };
 
 module.exports = {
-  mongoURI: 'mongodb://alexx:25L10i1979@localhost:27017/vkda',
+  mongoURI: 'mongodb://localhost:27017/vkda',
   secretOrKey: 'secret'
 };
